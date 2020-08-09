@@ -1,6 +1,5 @@
 import React, { Component, useState, useEffect } from 'react'
 import $ from "jquery";
-import Course from '../components/Course';
 import Pagination from './Pegination'
 import img1 from './assets/course1.PNG'
 import img2 from './assets/course2.PNG'
@@ -49,7 +48,7 @@ const  CourseList = () => {
      
 
      let PeginationComponenet,MobilePeginationComponent,length,img
-     let count=1
+     let count=0
 
      if(courses.length){
          length=courses.length
@@ -107,14 +106,14 @@ const  CourseList = () => {
                         img = <img  src={img1} className={style.img1} alt={img1} />
                      }
 
+                     console.log(count)
                      count++
-                     
                     return  <div className={style.recipe} key={course._id} >
           
                                 {img}
                             
                                 <div >
-                                     <h5 >{course.courseName}</h5>
+                                     <h5 >{count}. &nbsp; {course.courseName}</h5>
                                      <p >HavardX</p>
                                      <br/>
                                      <p>Course</p>
@@ -123,9 +122,9 @@ const  CourseList = () => {
                    
                 })}
 
-                <div className={style.pegination2}>
+                {/* <div className={style.pegination2}>
                     {PeginationComponenet} 
-                </div>   
+                </div>    */}
             
             </div>
         </div>
